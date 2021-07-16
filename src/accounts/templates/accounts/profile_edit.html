@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block body %} {%load bootstrap4%}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+  <div class="container"></div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="apply_job_form white-bg">
+          <h4>Edir Profile</h4>
+          <form action="#" method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {% bootstrap_form userform%}
+            {%bootstrap_form profileform%}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="submit_btn">
+                  <button class="boxed-btn3 w-100" type="submit">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="job_location_wrap">
+          <div class="job_lok_inner">
+            <div id="map" style="height: 200px"></div>
+            <script>
+              function initMap() {
+                var uluru = { lat: -25.363, lng: 131.044 };
+                var grayStyles = [
+                  {
+                    featureType: "all",
+                    stylers: [{ saturation: -90 }, { lightness: 50 }],
+                  },
+                  {
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#ccdee9" }],
+                  },
+                ];
+                var map = new google.maps.Map(document.getElementById("map"), {
+                  center: { lat: -31.197, lng: 150.744 },
+                  zoom: 9,
+                  styles: grayStyles,
+                  scrollwheel: false,
+                });
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
