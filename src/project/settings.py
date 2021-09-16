@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "jet",
     "django.contrib.admin",
     "contact",
+    "django_extensions",
     "home",
     "job",
     # my apps
